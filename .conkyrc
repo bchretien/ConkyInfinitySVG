@@ -55,18 +55,18 @@ default_color b7b7b7
 #own_window_transparent yes
 
 # Allow compiz to handle transparency manually (you will need to add Conky to compiz)
-own_window yes
-own_window_type normal
-own_window_transparent no
-own_window_hints undecorate,sticky,skip_taskbar,skip_pager,below
+#own_window yes
+#own_window_type normal
+#own_window_transparent no
+#own_window_hints undecorate,sticky,skip_taskbar,skip_pager,below
 
 # Allow conky to handle transparency (with percentages) with a compositor
 # From http://blog.mmassonnet.info/2011/08/xfce-48-with-conky.html)
-#own_window yes
-#window_own_type desktop
-#own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager	# make it behave like it belongs to the desktop
-#own_window_argb_visual yes	# true transparency, a compositor has to be active
-#own_window_argb_value 70	# make the background semi-transparent
+own_window yes
+window_own_type desktop
+own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager	# make it behave like it belongs to the desktop
+own_window_argb_visual yes	# true transparency, a compositor has to be active
+own_window_argb_value 70	# make the background semi-transparent
 
 
 
@@ -76,7 +76,7 @@ own_window_hints undecorate,sticky,skip_taskbar,skip_pager,below
 #minimum_size 800 560
 #maximum_width 1366
 
-minimum_size 1920 1080
+minimum_size 1600 900
 
 #alignment top_left
 alignment top_right
@@ -102,13 +102,13 @@ xftfont caviar dreams:size=8
 xftalpha 0.5
 uppercase no
 
-temperature_unit fahrenheit
-#temperature_unit celsius
+#temperature_unit fahrenheit
+temperature_unit celsius
 
 
 
 ## Lua: load clock rings.
-lua_load ~/.conky/scripts/haunted.lua
+lua_load ~/.conky-themes/ConkyInfinitySVG/.conky/scripts/haunted.lua
 lua_draw_hook_pre clock_rings
 
 
@@ -305,13 +305,13 @@ TEXT
  ${offset 700}${color EAEAEA}${font GE Inspira:pixelsize=120}${time %H:%M}${font}${voffset -84}${voffset 10}${color FFA300}${font GE Inspira:pixelsize=42}${time %d} ${voffset -15}${color EAEAEA}${font GE Inspira:pixelsize=22}${time  %B} ${time %Y}${font}${voffset 124}${font GE Inspira:pixelsize=58}${offset -547}${time %A}${font}
 ${offset 720}${voffset -100}${font Ubuntu:pixelsize=10}${color FFA300}HD ${offset 9}$color${fs_free /} / ${fs_size /}${offset 30}${color FFA300}RAM ${offset 9}$color$mem / $memmax${offset 30}${color FFA300}CPU ${offset 9}$color${cpu cpu0}%
 ${voffset 10}${offset 295}${color 2c2c2c}${hr 4}
-${image ~/.conky/background.png}
+${image ~/.conky-themes/ConkyInfinitySVG/.conky/background.png}
 
 
 # Disk usage node
 ${offset 120}${voffset 223}${color 4a89a7}${font Santana:size=8:style=Bold}root$color${font Santana:size=8} : ${offset 16}${fs_used /}/${fs_size /}
 ${offset 120}${voffset 12}${color 46a646}${font Santana:size=8:style=Bold}home$color${font Santana:size=8} : ${offset 7}${fs_used /home}/${fs_size /home}$font
-${offset 120}${voffset 12}${color e83737}${font Santana:size=8:style=Bold}swap$color${font Santana:size=8} : ${offset 10}${swap} / ${swapfree}$font
+${offset 120}${voffset 12}${color e83737}${font Santana:size=8:style=Bold}swap$color${font Santana:size=8} : ${offset 10}${swap}/${swapfree}$font
 # "Home" node (kernel, etc.)
 ${offset 583}${voffset -108}$color${font Santana:size=9:style=Bold}Linux ${kernel} kernel
 ${offset 585}${voffset 0}${color 4a89a7}${font Santana:size=8}Uptime : ${offset 9}$color${uptime}
@@ -329,9 +329,10 @@ ${offset 715}${voffset 0}${color 6f6f6f}${font Santana:size=8}Interface eth0 Usa
 ${offset 715}${voffset -2}$color${font Santana:size=8}${color 2c2c2c}${downspeedgraph eth0 32,200 b7b7b7 f4732d}
 ${offset 715}${voffset -5}${color 2c2c2c}${upspeedgraph eth0 32,200 b7b7b7 ebff46}
 # Positioning eset for static text examples below
-${voffset -158}
+${voffset -154}
 # Static text example: Logo
-${offset 120}${color EAEAEA}${font Ubuntu:pixelsize=20}${color f4732d}Ubuntu$color 12.10
+#${offset 120}${color EAEAEA}${font Ubuntu:pixelsize=20}${color f4732d}Ubuntu$color 12.10
+${offset 120}${color EAEAEA}${font Ubuntu:pixelsize=20}${color f4732d}Arch Linux
 # Static text example: Multi-line
 #${offset 120}$font${color 6f6f6f}random text can go here
 #${offset 120}and here...
