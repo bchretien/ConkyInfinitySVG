@@ -6,8 +6,8 @@ import os
 import userpwd
 from email.parser import HeaderParser
 
-arch_notificados = os.getenv("HOME") + '/.conky/scripts/mail/notificados.dat'
-osd_notifier = "~/.conky/scripts/OSD-notifier.py"
+arch_notificados = os.getenv("HOME") + '/.conky-themes/ConkyInfinitySVG/.conky/scripts/mail/notificados.dat'
+osd_notifier = "~/.conky-themes/ConkyInfinitySVG/.conky/scripts/OSD-notifier.py"
 
 def filtrarNotificados(mailbox, id_list):
 	with open(arch_notificados) as f:
