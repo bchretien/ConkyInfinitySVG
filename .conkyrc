@@ -315,9 +315,9 @@ lua_draw_hook_pre clock_rings
 # stuff after 'TEXT' will be formatted on screen
 TEXT
 # Clock and header
- ${offset 700}${color EAEAEA}${font GE Inspira:pixelsize=120}${time %H:%M}${font}${voffset -84}${voffset 10}${color FFA300}${font GE Inspira:pixelsize=42}${time %d} ${voffset -15}${color EAEAEA}${font GE Inspira:pixelsize=22}${time  %B} ${time %Y}${font}${voffset 124}${font GE Inspira:pixelsize=58}${offset -547}${time %A}${font}
-${offset 720}${voffset -100}${font Ubuntu:pixelsize=10}${color FFA300}HD ${offset 9}$color${fs_free /} / ${fs_size /}${offset 30}${color FFA300}RAM ${offset 9}$color$mem / $memmax${offset 30}${color FFA300}CPU ${offset 9}$color${cpu cpu0}%
-${voffset 10}${offset 295}${color 2c2c2c}${hr 4}
+ ${offset 300}${color EAEAEA}${font GE Inspira:pixelsize=80}${voffset 20}${time %H:%M}${voffset 20}${font}${voffset -84}${voffset 10}${color FFA300}${font GE Inspira:pixelsize=42}${offset 80}${time %d}${offset -80} ${voffset -15}${color EAEAEA}${font GE Inspira:pixelsize=22}${offset 80}${time  %B} ${time %Y}${font}${voffset 124}${font GE Inspira:pixelsize=58}${offset -547}${time %A}${font}
+${offset 450}${voffset -90}${font Ubuntu:pixelsize=10}${color FFA300}HD ${offset 9}$color${fs_free /} / ${fs_size /}${offset 30}${color FFA300}RAM ${offset 9}$color$mem / $memmax${offset 30}${color FFA300}CPU ${offset 9}$color${cpu cpu0}%
+${voffset 8}#${offset 295}${color 2c2c2c}${hr 4}
 ${image ~/.conky-themes/ConkyInfinitySVG/.conky/background.png}
 
 
@@ -342,7 +342,7 @@ ${offset 625}${voffset 0}${color 6f6f6f}${font Santana:size=8}eth0 usage :
 ${offset 625}${voffset -2}$color${font Santana:size=8}${color 2c2c2c}${downspeedgraph eth0 32,200 b7b7b7 f4732d}
 ${offset 625}${voffset -5}${color 2c2c2c}${upspeedgraph eth0 32,200 b7b7b7 ebff46}
 # "Mail" node
-${offset 743}${voffset -212}${color}${font Santana:size=11:style=Bold}Gmail:${color} ${exec echo ${EMAIL_USER}}
+${offset 743}${voffset -212}${color}${font Santana:size=11:style=Bold}Gmail:${color} ${exec echo ${EMAIL}}
 ${offset 743}${font Monospace:size=9}${color5}${texeci 300 python2 ~/.conky-themes/ConkyInfinitySVG/.conky/scripts/mail/gmail.py}
 # Positioning eset for static text examples below
 ${voffset 10}
