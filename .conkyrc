@@ -69,6 +69,19 @@ own_window_argb_visual yes	# true transparency, a compositor has to be active
 own_window_argb_value 70	# make the background semi-transparent
 
 
+# Color settings
+default_color eaeaea
+
+color1 b7b7b7        #(light grey)
+color2 6f6f6f        #(medium grey)
+color2 2c2c2c        #(dark grey)
+color3 4a89a7        #(teal / blue)
+color4 e83737        #(red)
+color5 ebff46        #(yellow)
+color6 46a646        #(green)
+color7 f4732d        #(orange)
+color8 ffa300        #(bright orange)
+
 
 ## This Resolution is set according to the screen resolution of 1920 1080
 ## Adjust According to yours
@@ -309,11 +322,11 @@ ${image ~/.conky-themes/ConkyInfinitySVG/.conky/background.png}
 
 
 # Disk usage node
-${offset 120}${voffset 223}${color 4a89a7}${font Santana:size=8:style=Bold}root$color${font Santana:size=8} : ${offset 16}${fs_used /}/${fs_size /}
+${offset 120}${voffset 229}${color 4a89a7}${font Santana:size=8:style=Bold}root$color${font Santana:size=8} : ${offset 16}${fs_used /}/${fs_size /}
 ${offset 120}${voffset 12}${color 46a646}${font Santana:size=8:style=Bold}home$color${font Santana:size=8} : ${offset 7}${fs_used /home}/${fs_size /home}$font
 ${offset 120}${voffset 12}${color e83737}${font Santana:size=8:style=Bold}swap$color${font Santana:size=8} : ${offset 10}${swap}/${swapfree}$font
 # "Home" node (kernel, etc.)
-${offset 493}${voffset -100}$color${font Santana:size=9:style=Bold}Linux ${kernel} kernel
+${offset 493}${voffset -102}$color${font Santana:size=9:style=Bold}Linux ${kernel} kernel
 ${offset 495}${voffset 0}${color 4a89a7}${font Santana:size=8}Uptime : ${offset 9}$color${uptime}
 # "User" node (whoami, top process, etc.)
 ${offset 743}${voffset -78}$color${font Santana:size=9:style=Bold}${exec whoami}@${nodename}
@@ -329,9 +342,10 @@ ${offset 625}${voffset 0}${color 6f6f6f}${font Santana:size=8}eth0 usage :
 ${offset 625}${voffset -2}$color${font Santana:size=8}${color 2c2c2c}${downspeedgraph eth0 32,200 b7b7b7 f4732d}
 ${offset 625}${voffset -5}${color 2c2c2c}${upspeedgraph eth0 32,200 b7b7b7 ebff46}
 # "Mail" node
-${offset 743}${voffset -202}${color}${font Santana:size=11:style=Bold}Gmail:${color} ${exec echo ${EMAIL_USER}}
+${offset 743}${voffset -212}${color}${font Santana:size=11:style=Bold}Gmail:${color} ${exec echo ${EMAIL_USER}}
+${offset 743}${font Monospace:size=9}${color5}${texeci 300 python2 ~/.conky-themes/ConkyInfinitySVG/.conky/scripts/mail/gmail.py}
 # Positioning eset for static text examples below
-${voffset -154}
+${voffset 10}
 # Static text example: Logo
 #${offset 120}${color EAEAEA}${font Ubuntu:pixelsize=20}${color f4732d}Ubuntu$color 12.10
 ${offset 120}${color EAEAEA}${font Ubuntu:pixelsize=20}${color f4732d}Arch Linux
