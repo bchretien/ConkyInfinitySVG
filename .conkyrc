@@ -13,7 +13,7 @@
 #	2c2c2c (dark grey)
 #
 #	4a89a7 (blue)		hardware / memory / root
-#	468626 (blue alt)	
+#	468626 (blue alt)
 #	e83737 (red)		swap
 #	46a646 (green)		user / cpu / home
 #	f4732d (orange)		network
@@ -131,36 +131,36 @@ lua_draw_hook_pre clock_rings
 # 	Variable          Arguments     Description
 
 # 	addr              (interface)   IP address for an interface
-# 	acpiacadapter                   ACPI ac adapter state.                   
-# 	acpifan                         ACPI fan state                           
-# 	acpitemp                        ACPI temperature.                        
-# 	adt746xcpu                      CPU temperature from therm_adt746x       
-# 	adt746xfan                      Fan speed from therm_adt746x             
+# 	acpiacadapter                   ACPI ac adapter state.
+# 	acpifan                         ACPI fan state
+# 	acpitemp                        ACPI temperature.
+# 	adt746xcpu                      CPU temperature from therm_adt746x
+# 	adt746xfan                      Fan speed from therm_adt746x
 # 	alignr            (num)         Right-justify text, with space of N
 # 	alignc                          Align text to centre
-# 	battery           (num)         Remaining capasity in ACPI or APM        
-# 					battery. ACPI battery number can be      
-# 					given as argument (default is BAT0).     
-# 	buffers                         Amount of memory buffered                
-# 	cached                          Amount of memory cached                  
-# 	color             (color)       Change drawing color to color            
-# 	cpu                             CPU usage in percents                    
-# 	cpubar            (height)      Bar that shows CPU usage, height is      
-# 					bar's height in pixels                 
+# 	battery           (num)         Remaining capasity in ACPI or APM
+# 					battery. ACPI battery number can be
+# 					given as argument (default is BAT0).
+# 	buffers                         Amount of memory buffered
+# 	cached                          Amount of memory cached
+# 	color             (color)       Change drawing color to color
+# 	cpu                             CPU usage in percents
+# 	cpubar            (height)      Bar that shows CPU usage, height is
+# 					bar's height in pixels
 # 	cpugraph          (height),(width) (gradient colour 1) (gradient colour 2)
 # 					CPU usage graph, with optional colours in hex,
 # 					minus the #.
-# 	downspeed         net           Download speed in kilobytes              
-# 	downspeedf        net           Download speed in kilobytes with one     
-# 					decimal                                  
+# 	downspeed         net           Download speed in kilobytes
+# 	downspeedf        net           Download speed in kilobytes with one
+# 					decimal
 # 	downspeedgraph    net (height),(width) (gradient colour 1) (gradient colour 2)
 # 					Download speed graph, colours defined in
 # 					hex, minus the #.
-# 	exec              shell command Executes a shell command and displays    
-# 					the output in conky. warning: this      
-# 					takes a lot more resources than other    
-# 					variables. I'd recommend coding wanted   
-# 					behaviour in C and posting a patch :-).  
+# 	exec              shell command Executes a shell command and displays
+# 					the output in conky. warning: this
+# 					takes a lot more resources than other
+# 					variables. I'd recommend coding wanted
+# 					behaviour in C and posting a patch :-).
 # 	execbar           shell command Same as exec, except if the first value
 # 					return is a value between 0-100, it
 # 					will use that number for a bar.
@@ -168,31 +168,31 @@ lua_draw_hook_pre clock_rings
 # 					but that may change in the future.
 # 	execgraph         shell command Same as execbar, but graphs values
 # 	execi             interval, shell command
-#  					Same as exec but with specific interval. 
-# 					Interval can't be less than              
-# 					update_interval in configuration.        
+#  					Same as exec but with specific interval.
+# 					Interval can't be less than
+# 					update_interval in configuration.
 #	font		  font		Specify a different font.  Only applies
 #					to one line.
-# 	fs_bar            (height), (fs)Bar that shows how much space is used on 
-# 					a file system. height is the height in   
-# 					pixels. fs is any file on that file      
-# 					system.                                  
-# 	fs_free           (fs)          Free space on a file system available    
-# 					for users.                               
-# 	fs_free_perc      (fs)          Free percentage of space on a file       
-# 					system available for users.              
-# 	fs_size           (fs)          File system size                         
-# 	fs_used           (fs)          File system used space                   
-# 	hr                (height)      Horizontal line, height is the height in 
-# 					pixels                                   
-# 	i2c               (dev), type, n  I2C sensor from sysfs (Linux 2.6). dev   
-# 					may be omitted if you have only one I2C  
-# 					device. type is either in (or vol)       
+# 	fs_bar            (height), (fs)Bar that shows how much space is used on
+# 					a file system. height is the height in
+# 					pixels. fs is any file on that file
+# 					system.
+# 	fs_free           (fs)          Free space on a file system available
+# 					for users.
+# 	fs_free_perc      (fs)          Free percentage of space on a file
+# 					system available for users.
+# 	fs_size           (fs)          File system size
+# 	fs_used           (fs)          File system used space
+# 	hr                (height)      Horizontal line, height is the height in
+# 					pixels
+# 	i2c               (dev), type, n  I2C sensor from sysfs (Linux 2.6). dev
+# 					may be omitted if you have only one I2C
+# 					device. type is either in (or vol)
 # 					meaning voltage, fan meaning fan or
 # 					temp/tempf (first in C, second in F)
-# 					meaning temperature. n is number of the  
-# 					sensor. See /sys/bus/i2c/devices/ on     
-# 					your local computer.                     
+# 					meaning temperature. n is number of the
+# 					sensor. See /sys/bus/i2c/devices/ on
+# 					your local computer.
 # 	if_running        (process)     if PROCESS is running, display
 # 					everything if_running and the matching $endif
 # 	if_existing       (file)        if FILE exists, display everything between
@@ -200,21 +200,21 @@ lua_draw_hook_pre clock_rings
 # 	if_mounted        (mountpoint)  if MOUNTPOINT is mounted, display everything between
 # 					if_mounted and the matching $endif
 # 	else                            Text to show if any of the above are not true
-# 	kernel                          Kernel version                          
+# 	kernel                          Kernel version
 # 	linkstatus        (interface)   Get the link status for wireless connections
-# 	loadavg           (1), (2), (3) System load average, 1 is for past 1     
-# 					minute, 2 for past 5 minutes and 3 for   
-# 					past 15 minutes.                         
-# 	machine                         Machine, i686 for example                
-# 	mails                           Mail count in mail spool. You can use    
-# 					program like fetchmail to get mails from 
-# 					some server using your favourite         
-# 					protocol. See also new_mails.            
-# 	mem                             Amount of memory in use                  
-# 	membar            (height)      Bar that shows amount of memory in use   
-# 	memmax                          Total amount of memory                   
+# 	loadavg           (1), (2), (3) System load average, 1 is for past 1
+# 					minute, 2 for past 5 minutes and 3 for
+# 					past 15 minutes.
+# 	machine                         Machine, i686 for example
+# 	mails                           Mail count in mail spool. You can use
+# 					program like fetchmail to get mails from
+# 					some server using your favourite
+# 					protocol. See also new_mails.
+# 	mem                             Amount of memory in use
+# 	membar            (height)      Bar that shows amount of memory in use
+# 	memmax                          Total amount of memory
 # 	memperc                         Percentage of memory in use
-# 	
+#
 # 	metar_ob_time
 # 	metar_temp
 # 	metar_tempf                     Temp in F
@@ -226,7 +226,7 @@ lua_draw_hook_pre clock_rings
 # 	metar_swinddir
 # 	metar_cloud
 # 	metar_u2d_time
-# 	
+#
 # 	ml_upload_counter               total session upload in mb
 # 	ml_download_counter             total session download in mb
 # 	ml_nshared_files                number of shared files
@@ -238,7 +238,7 @@ lua_draw_hook_pre clock_rings
 # 	ml_udp_download_rate            udp download rate in kb/s
 # 	ml_ndownloaded_files            number of completed files
 # 	ml_ndownloading_files           number of downloading files
-# 	
+#
 # 	mpd_artist			Artist in current MPD song
 # 					(must be enabled at compile)
 # 	mpd_album			Album in current MPD song
@@ -250,23 +250,23 @@ lua_draw_hook_pre clock_rings
 # 	mpd_elapsed                     Song's elapsed time
 # 	mpd_length                      Song's length
 # 	mpd_percent                     Percent of song's progress
-# 	new_mails                       Unread mail count in mail spool.         
-# 	nodename                        Hostname                                 
-# 	outlinecolor      (color)       Change outline color                     
-# 	pre_exec          shell command Executes a shell command one time before 
-# 					conky displays anything and puts output 
-# 					as text.                                 
-# 	processes                       Total processes (sleeping and running)   
-# 	running_processes               Running processes (not sleeping),        
-# 					requires Linux 2.6                       
-# 	shadecolor        (color)       Change shading color                     
-# 	stippled_hr       (space),      Stippled (dashed) horizontal line        
-# 			(height)        
-# 	swapbar           (height)      Bar that shows amount of swap in use     
-# 	swap                            Amount of swap in use                    
-# 	swapmax                         Total amount of swap                     
-# 	swapperc                        Percentage of swap in use                
-# 	sysname                         System name, Linux for example           
+# 	new_mails                       Unread mail count in mail spool.
+# 	nodename                        Hostname
+# 	outlinecolor      (color)       Change outline color
+# 	pre_exec          shell command Executes a shell command one time before
+# 					conky displays anything and puts output
+# 					as text.
+# 	processes                       Total processes (sleeping and running)
+# 	running_processes               Running processes (not sleeping),
+# 					requires Linux 2.6
+# 	shadecolor        (color)       Change shading color
+# 	stippled_hr       (space),      Stippled (dashed) horizontal line
+# 			(height)
+# 	swapbar           (height)      Bar that shows amount of swap in use
+# 	swap                            Amount of swap in use
+# 	swapmax                         Total amount of swap
+# 	swapperc                        Percentage of swap in use
+# 	sysname                         System name, Linux for example
 # 	offset            pixels        Move text over by N pixels
 # 	tail              logfile, lines (interval)
 # 					Displays last N lines of supplied text
@@ -274,16 +274,16 @@ lua_draw_hook_pre clock_rings
 # 					Conky assumes 2x Conky's interval.
 # 					Max of 30 lines.
 # 					Max of 30 lines can be displayed.
-# 	time              (format)      Local time, see man strftime to get more 
-# 					information about format                 
-# 	totaldown         net           Total download, overflows at 4 GB on     
-# 					Linux with 32-bit arch and there doesn't 
-# 					seem to be a way to know how many times  
-# 					it has already done that before conky   
-# 					has started.                            
+# 	time              (format)      Local time, see man strftime to get more
+# 					information about format
+# 	totaldown         net           Total download, overflows at 4 GB on
+# 					Linux with 32-bit arch and there doesn't
+# 					seem to be a way to know how many times
+# 					it has already done that before conky
+# 					has started.
 # 	top               type, num     This takes arguments in the form:
 # 					top <name> <number>
-# 					Basically, processes are ranked from 
+# 					Basically, processes are ranked from
 # 					highest to lowest in terms of cpu
 # 					usage, which is what <num> represents.
 # 					The types are: "name", "pid", "cpu", and
@@ -291,17 +291,17 @@ lua_draw_hook_pre clock_rings
 # 					There can be a max of 10 processes listed.
 # 	top_mem           type, num     Same as top, except sorted by mem usage
 # 					instead of cpu
-# 	totalup           net           Total upload, this one too, may overflow 
-# 	updates                         Number of updates (for debugging)        
-# 	upspeed           net           Upload speed in kilobytes                
-# 	upspeedf          net           Upload speed in kilobytes with one       
-# 					decimal                                  
+# 	totalup           net           Total upload, this one too, may overflow
+# 	updates                         Number of updates (for debugging)
+# 	upspeed           net           Upload speed in kilobytes
+# 	upspeedf          net           Upload speed in kilobytes with one
+# 					decimal
 # 	upspeedgraph      net (height),(width)  (gradient colour 1) (gradient colour 2)
 # 					Upload speed graph, colours defined in
 # 					hex, minus the #.
-# 	uptime                          Uptime                                   
-# 	uptime_short                    Uptime in a shorter format               
-# 	
+# 	uptime                          Uptime
+# 	uptime_short                    Uptime in a shorter format
+#
 # 	seti_prog                       Seti@home current progress
 # 	seti_progbar      (height)      Seti@home current progress bar
 # 	seti_credit                     Seti@home total user credit
