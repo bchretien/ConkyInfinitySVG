@@ -11,10 +11,17 @@
 #        gpg --output ~/.dotfiles/gmail.dat -r ${GPGKEY} --encrypt my_file
 #    Remember to delete "my_file" afterwards...
 
-import sys, os, imaplib, subprocess
+import sys, os, imaplib, subprocess, email
 
 port = 993
 server = 'imap.gmail.com'
+
+def cap(s, l):
+    return s if len(s)<=l else s[0:l-3]+'...'
+
+def getTitle(data):
+    msg = email.message_from_string(data[0][1])
+    return cap(msg['subject'], 20)
 
 # Find username
 username = os.environ.get ('EMAIL')
@@ -58,13 +65,17 @@ except:
     print ('Error: login error (' + str(sys.exc_info()[1]) + ')')
     sys.exit (1)
 
-typ, data = imap_server.select ('Inbox', True)
+typ, data = imap_server.select ('Inbox', readonly=True)
 if typ == 'OK':
-    total = int (data[0])
-    typ, data = imap_server.search (None, 'SEEN')
+    typ, data = imap_server.search (None, 'UNSEEN')
     if typ == 'OK':
-        seen = len (data[0].split ())
-        print('{} new'.format (total - seen))
+        id_list = data[0].split ()
+        if id_list != []:
+            unseen = len (id_list)
+            typ, data = imap_server.fetch(id_list[-1],'(RFC822)')
+            print('{} new ("{}")'.format (unseen,getTitle(data)))
+        else:
+            print('0 new')
 
 if typ != 'OK':
     print ('?? new')
