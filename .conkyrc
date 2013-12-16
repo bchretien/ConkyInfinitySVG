@@ -86,16 +86,13 @@ color8 ffa300        #(bright orange)
 ## This Resolution is set according to the screen resolution of 1920 1080
 ## Adjust According to yours
 
-#minimum_size 800 560
-#maximum_width 1366
-
-minimum_size 1600 900
+#minimum_size 1600 900
+minimum_size 3000 3000
 
 #alignment top_left
 alignment top_right
 gap_x 0
 gap_y 0
-
 
 
 ## Graphics settings
@@ -335,7 +332,7 @@ ${offset 745}${voffset 0}$color${font Santana:size=8}${color 46a646}Top (RAM) : 
 ${offset 745}${voffset 0}${color 6f6f6f}CPU usage (${cpu}%) :
 ${offset 745}${voffset -2}$color${font Santana:size=8}${color 2c2c2c}${cpugraph 32,200 2c2c2c 46a646}
 # "Network" node (IP, connections, etc.)
-${offset 623}${voffset 88}$color${font Santana:size=9:style=Bold}Local IP :${offset 20}${addr eth0}
+${offset 623}${voffset 108}$color${font Santana:size=9:style=Bold}Local IP :${offset 20}${addr eth0}
 ${offset 623}${voffset 0}$color${font Santana:size=9:style=Bold}Global IP :${offset 15}${execi 7200 ~/.conky-themes/ConkyInfinitySVG/.conky/scripts/net/public_ip.sh}
 ${offset 625}${voffset 0}$color${font Santana:size=8}TCP Connections : ${tcp_portmon 1 65535 count}
 ${offset 625}${voffset 0}${font Santana:size=8}${color f4732d}Down : ${offset 9}$color${downspeed eth0}/s ${offset 8}${color ebff46}Up : ${offset 9}$color${upspeed eth0} /s
@@ -343,10 +340,10 @@ ${offset 625}${voffset 0}${color 6f6f6f}${font Santana:size=8}eth0 usage :
 ${offset 625}${voffset -2}$color${font Santana:size=8}${color 2c2c2c}${downspeedgraph eth0 32,200 b7b7b7 f4732d}
 ${offset 625}${voffset -5}${color 2c2c2c}${upspeedgraph eth0 32,200 b7b7b7 ebff46}
 # "Mail" node
-${offset 743}${voffset -225}${color}${font Santana:size=11:style=Bold}Gmail:${color} ${exec echo ${EMAIL}}
+${offset 743}${voffset -205}${color}${font Santana:size=11:style=Bold}Gmail:${color} ${exec echo ${EMAIL}}
 ${offset 743}${font Monospace:size=9}${color5}${texeci 300 python2 ~/.conky-themes/ConkyInfinitySVG/.conky/scripts/mail/gmail.py}
 # Positioning eset for static text examples below
-${voffset 10}
+${voffset 30}
 # Static text example: Logo
 #${offset 120}${color EAEAEA}${font Ubuntu:pixelsize=20}${color f4732d}Ubuntu$color 12.10
 ${offset 120}${color EAEAEA}${font Ubuntu:pixelsize=20}${color f4732d}Arch Linux
