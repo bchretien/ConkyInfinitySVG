@@ -104,7 +104,14 @@ draw_outline no
 draw_borders no
 draw_graph_borders yes
 
+# Use short units (G etc.)
+short_units yes
 
+# Pad the % outputs to two places
+pad_percents 2
+
+# Fixed width for top names
+top_name_width 10
 
 ## Text settings
 use_xft yes
@@ -112,10 +119,8 @@ xftfont caviar dreams:size=8
 xftalpha 0.5
 uppercase no
 
-#temperature_unit fahrenheit
+# Unit for temperature: celsius, fahrenheit
 temperature_unit celsius
-
-
 
 ## Lua: load clock rings.
 lua_load ~/.conky-themes/ConkyInfinitySVG/.conky/scripts/haunted.lua
@@ -307,47 +312,85 @@ lua_draw_hook_pre clock_rings
 # allows characters right after the variable and must be used in network
 # stuff because of an argument
 
-
-
 # stuff after 'TEXT' will be formatted on screen
 TEXT
-# Clock and header
- ${offset 300}${color EAEAEA}${font GE Inspira:pixelsize=80}${voffset 20}${time %H:%M}${voffset 20}${font}${voffset -84}${voffset 10}${color FFA300}${font GE Inspira:pixelsize=42}${offset 80}${time %d}${offset -80} ${voffset -15}${color EAEAEA}${font GE Inspira:pixelsize=22}${offset 80}${time  %B} ${time %Y}${font}${voffset 124}${font GE Inspira:pixelsize=58}${offset -547}${time %A}${font}
-${offset 450}${voffset -90}${font Ubuntu:pixelsize=10}${color FFA300}HD ${offset 9}$color${fs_free /} / ${fs_size /}${offset 30}${color FFA300}RAM ${offset 9}$color$mem / $memmax${offset 30}${color FFA300}CPU ${offset 9}$color${cpu cpu0}%
+## Clock and header
+${voffset 20}${font Mono:size=0}
+${offset 300}${color EAEAEA}${font GE Inspira:pixelsize=80}${time %H:%M}${voffset 20}${font}${voffset -84}${voffset 10}${color FFA300}${font GE Inspira:pixelsize=42}${offset 80}${time %d}${offset -80} ${voffset -15}${color EAEAEA}${font GE Inspira:pixelsize=22}${offset 80}${time  %B} ${time %Y}${font}${voffset 124}${font GE Inspira:pixelsize=58}${offset -547}${time %A}${font}
+${offset 450}${voffset -100}${font Ubuntu:pixelsize=10}${color FFA300}HD ${offset 9}$color${fs_free /} / ${fs_size /}${offset 30}${color FFA300}RAM ${offset 9}$color$mem / $memmax${offset 30}${color FFA300}CPU ${offset 9}$color${cpu cpu0}%
 ${voffset 8}#${offset 295}${color 2c2c2c}${hr 4}
 ${image ~/.conky-themes/ConkyInfinitySVG/.conky/background.png}
-
-
-# Disk usage node
-${offset 120}${voffset 229}${color 4a89a7}${font Santana:size=8:style=Bold}root$color${font Santana:size=8} : ${offset 16}${fs_used /}/${fs_size /}
-${offset 120}${voffset 12}${color 46a646}${font Santana:size=8:style=Bold}home$color${font Santana:size=8} : ${offset 7}${fs_used /home}/${fs_size /home}$font
-${offset 120}${voffset 12}${color e83737}${font Santana:size=8:style=Bold}swap$color${font Santana:size=8} : ${offset 10}${swap}/${swapfree}$font
-# "Home" node (kernel, etc.)
-${offset 493}${voffset -102}$color${font Santana:size=9:style=Bold}Linux ${kernel} kernel
+${voffset -175}${font Mono:size=0}
+#
+## Disk usage node
+${voffset 418}${font Mono:size=0}
+${offset 120}${voffset 0}${color 4a89a7}${font Santana:size=8:style=Bold}root$color${font Santana:size=8} :${offset 16}${fs_used /}/${fs_size /}
+${offset 120}${voffset 15}${color 46a646}${font Santana:size=8:style=Bold}home$color${font Santana:size=8} : ${offset 7}${fs_used /home}/${fs_size /home}$font
+${offset 120}${voffset 15}${color e83737}${font Santana:size=8:style=Bold}swap$color${font Santana:size=8} : ${offset 10}${swap}/${swapfree}$font
+${voffset -487}${font Mono:size=0}
+#
+#
+## "Home" node (kernel, etc.)
+${voffset 374}${font Mono:size=0}
+${offset 493}${voffset 0}$color${font Santana:size=9:style=Bold}Linux ${kernel} kernel
 ${offset 495}${voffset 0}${color 4a89a7}${font Santana:size=8}Uptime : ${offset 9}$color${uptime}
-# "User" node (whoami, top process, etc.)
-${offset 743}${voffset -78}$color${font Santana:size=9:style=Bold}${exec whoami}@${nodename}
-${offset 745}${voffset 0}$color${font Santana:size=8}${color 46a646}Top (CPU) : ${offset 9}$color${top name 5} ${top cpu 5}
-${offset 745}${voffset 0}$color${font Santana:size=8}${color 46a646}Top (RAM) : ${offset 9}$color${top_mem name 5} ${top_mem mem 5}
-${offset 745}${voffset 0}${color 6f6f6f}CPU usage (${cpu}%) :
+${voffset -414}${font Mono:size=0}
+#
+#
+## "User" node (whoami, top process, etc.)
+${voffset 330}${font Mono:size=0}
+${offset 743}${voffset 0}$color${font Santana:size=9:style=Bold}${exec whoami}@${nodename}
+${offset 745}${voffset 0}$color${font Santana:size=8}${color 46a646}Top (CPU) : ${offset 9}$color${top name 5}${goto 880}${top cpu 5}
+${offset 745}${voffset 0}$color${font Santana:size=8}${color 46a646}Top (RAM) : ${offset 9}$color${top_mem name 5}${goto 880}${top_mem mem 5}
+${offset 745}${voffset 2}${color 6f6f6f}CPU usage (${cpu}%) :
 ${offset 745}${voffset -2}$color${font Santana:size=8}${color 2c2c2c}${cpugraph 32,200 2c2c2c 46a646}
-# "Network" node (IP, connections, etc.)
-${offset 623}${voffset 108}$color${font Santana:size=9:style=Bold}Local IP :${offset 20}${addr eth0}
-${offset 623}${voffset 0}$color${font Santana:size=9:style=Bold}Global IP :${offset 15}${execi 7200 ~/.conky-themes/ConkyInfinitySVG/.conky/scripts/net/public_ip.sh}
+${voffset -410}${font Mono:size=0}
+#
+#
+## "Network" node (IP, connections, etc.)
+${voffset 510}${font Mono:size=0}
+${offset 623}${voffset 0}$color${font Santana:size=9:style=Bold}Local IP :${goto 685}${addr eth0}
+${offset 623}${voffset 0}$color${font Santana:size=9:style=Bold}Global IP :${goto 685}${execi 7200 ~/.conky-themes/ConkyInfinitySVG/.conky/scripts/net/public_ip.sh}
 ${offset 625}${voffset 0}$color${font Santana:size=8}TCP Connections : ${tcp_portmon 1 65535 count}
-${offset 625}${voffset 0}${font Santana:size=8}${color f4732d}Down : ${offset 9}$color${downspeed eth0}/s ${offset 8}${color ebff46}Up : ${offset 9}$color${upspeed eth0} /s
+${offset 625}${voffset 0}${font Santana:size=8}${color f4732d}Down : ${goto 675}$color${downspeed eth0}/s ${goto 725}${color ebff46}Up : ${goto 760}$color${upspeed eth0} /s
 ${offset 625}${voffset 0}${color 6f6f6f}${font Santana:size=8}eth0 usage :
 ${offset 625}${voffset -2}$color${font Santana:size=8}${color 2c2c2c}${downspeedgraph eth0 32,200 b7b7b7 f4732d}
 ${offset 625}${voffset -5}${color 2c2c2c}${upspeedgraph eth0 32,200 b7b7b7 ebff46}
-# "Mail" node
-${offset 743}${voffset -205}${color}${font Santana:size=11:style=Bold}Gmail:${color} ${exec echo ${EMAIL}}
-${offset 743}${font Monospace:size=9}${color5}${texeci 300 python2 ~/.conky-themes/ConkyInfinitySVG/.conky/scripts/mail/gmail.py}
-# Positioning eset for static text examples below
-${voffset 30}
+${voffset -650}${font Mono:size=0}
+#
+#
+## "Mail" node
+${voffset 440}${font Mono:size=0}
+${offset 743}${voffset 0}${color}${font Santana:size=11:style=Bold}Gmail:${color} ${exec echo ${EMAIL}}
+${offset 743}${voffset 0}${font Monospace:size=9}${color5}${texeci 300 python2 ~/.conky-themes/ConkyInfinitySVG/.conky/scripts/mail/gmail.py}
+${voffset -480}${font Mono:size=0}
+#
+#
+## Positioning eset for static text examples below
 # Static text example: Logo
-#${offset 120}${color EAEAEA}${font Ubuntu:pixelsize=20}${color f4732d}Ubuntu$color 12.10
-${offset 120}${color EAEAEA}${font Ubuntu:pixelsize=20}${color f4732d}Arch Linux
-# Static text example: Multi-line
-#${offset 120}$font${color 6f6f6f}random text can go here
-#${offset 120}and here...
-#${offset 120}and here...
+${voffset 500}${font Mono:size=0}
+${offset 130}${color EAEAEA}${font Ubuntu:pixelsize=20}${color f4732d}Arch Linux
+${voffset -540}${font Mono:size=0}
+#
+#
+## Weather
+${voffset 120}${font Mono:size=0}
+${texeci 300 curl -s "http://weather.yahooapis.com/forecastrss?w=612977&u=c" -o ~/.cache/weather.xml}
+# Find weather condition
+${voffset 115}${offset 690}${font Ubuntu:pixelsize=14}${color}${texeci 300 grep "yweather:condition" ~/.cache/weather.xml | grep -o "text=\"[^\"]*\"" | grep -o "\"[^\"]*\"" | grep -o "[^\"]*"}
+# Find localization
+${voffset 0}${offset 650}${font Open Sans Light:size=15}${color}${execi 300 grep "yweather:location" ~/.cache/weather.xml | grep -o "city=\"[^\"]*\"" | grep -o "\"[^\"]*\"" | grep -o "[^\"]*"}, ${execi 300 grep "yweather:location" ~/.cache/weather.xml | grep -o "country=\"[^\"]*\"" | grep -o "\"[^\"]*\"" | grep -o "[^\"]*"}${font}
+# Temperature
+${voffset -85}${font Open Sans Light:size=28}${color}${offset 600}${execi 300 grep "yweather:condition" ~/.cache/weather.xml | grep -o "temp=\"[^\"]*\"" | grep -o "\"[^\"]*\"" | grep -o "[^\"]*"}°C${font}
+# Update image for current weather
+${texeci 300 cp -f ~/.conky-themes/ConkyInfinitySVG/.conky/scripts/weather/$(grep "yweather:condition" ~/.cache/weather.xml | grep -o "code=\"[^\"]*\"" | grep -o "\"[^\"]*\"" | grep -o "[^\"]*").png ~/.cache/weather.png}
+${voffset -75}
+# Wind
+${offset 820}${voffset 25}${font Ubuntu:pixelsize=12}${color}${texeci 300 grep "yweather:wind" ~/.cache/weather.xml | grep -o "speed=\"[^\"]*\"" | grep -o "\"[^\"]*\"" | grep -o "[^\"]*"}${execi 300 grep "yweather:units" ~/.cache/weather.xml | grep -o "speed=\"[^\"]*\"" | grep -o "\"[^\"]*\"" | grep -o "[^\"]*"}
+# Humidity
+${offset 820}${voffset 6}${font Ubuntu:pixelsize=12}${texeci 300 grep "yweather:atmosphere" ~/.cache/weather.xml | grep -o "humidity=\"[^\"]*\"" | grep -o "\"[^\"]*\"" | grep -o "[^\"]*"}%
+# Display images
+${image ~/.cache/weather.png -p 710,170 -s 60x60}
+${image ~/.conky-themes/ConkyInfinitySVG/.conky/scripts/weather/wind.png -p 790,185 -s 15x15}
+${image ~/.conky-themes/ConkyInfinitySVG/.conky/scripts/weather/humidity.png -p 790,205 -s 15x15}
+${voffset -270}${font Mono:size=0}
