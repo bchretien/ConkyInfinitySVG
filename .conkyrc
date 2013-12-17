@@ -361,7 +361,7 @@ ${voffset -625}${font Mono:size=0}
 ## "Mail" node
 ${voffset 435}${font Mono:size=0}
 ${offset 743}${voffset 0}${color}${font Santana:size=11:style=Bold}Gmail:${color} ${exec echo ${EMAIL}}
-${offset 743}${voffset 0}${font Monospace:size=9}${color5}${texeci 300 python2 ~/.conky-themes/ConkyInfinitySVG/.conky/scripts/mail/gmail.py}
+${offset 743}${voffset 0}${font Monospace:size=9}${color5}${texeci 300 python2 ~/.conky-themes/scripts/mail/cache_gmail.py -nle && echo `~/.conky-themes/scripts/mail/gmail_new.sh` `~/.conky-themes/scripts/mail/gmail_subject.sh` `~/.conky-themes/scripts/mail/gmail_error.sh`}
 ${voffset -475}${font Mono:size=0}
 #
 #
@@ -378,18 +378,18 @@ ${texeci 300 curl -s "http://weather.yahooapis.com/forecastrss?w=612977&u=c" -o 
 # Find weather condition
 #${voffset 115}${offset 690}${font Ubuntu:pixelsize=14}${color}${texeci 300 grep "yweather:condition" ~/.cache/weather.xml | grep -o "text=\"[^\"]*\"" | grep -o "\"[^\"]*\"" | grep -o "[^\"]*"}
 # Find localization
-${voffset 115}${offset 650}${font Open Sans Light:size=15}${color}${execi 300 grep "yweather:location" ~/.cache/weather.xml | grep -o "city=\"[^\"]*\"" | grep -o "\"[^\"]*\"" | grep -o "[^\"]*"}, ${execi 300 grep "yweather:location" ~/.cache/weather.xml | grep -o "country=\"[^\"]*\"" | grep -o "\"[^\"]*\"" | grep -o "[^\"]*"}${font}
+${voffset 115}${offset 690}${font Open Sans Light:size=15}${color}${execi 300 grep "yweather:location" ~/.cache/weather.xml | grep -o "city=\"[^\"]*\"" | grep -o "\"[^\"]*\"" | grep -o "[^\"]*"}, ${execi 300 grep "yweather:location" ~/.cache/weather.xml | grep -o "country=\"[^\"]*\"" | grep -o "\"[^\"]*\"" | grep -o "[^\"]*"}${font}
 # Temperature
-${voffset -70}${font Open Sans Light:size=28}${color}${offset 625}${execi 300 grep "yweather:condition" ~/.cache/weather.xml | grep -o "temp=\"[^\"]*\"" | grep -o "\"[^\"]*\"" | grep -o "[^\"]*"}°C${font}
+${voffset -70}${font Open Sans Light:size=28}${color}${offset 665}${execi 300 grep "yweather:condition" ~/.cache/weather.xml | grep -o "temp=\"[^\"]*\"" | grep -o "\"[^\"]*\"" | grep -o "[^\"]*"}°C${font}
 # Update image for current weather
 ${texeci 300 cp -f ~/.conky-themes/ConkyInfinitySVG/.conky/scripts/weather/$(grep "yweather:condition" ~/.cache/weather.xml | grep -o "code=\"[^\"]*\"" | grep -o "\"[^\"]*\"" | grep -o "[^\"]*").png ~/.cache/weather.png}
 ${voffset -92}
 # Wind
-${offset 835}${voffset 28}${font Ubuntu:pixelsize=12}${color}${texeci 300 grep "yweather:wind" ~/.cache/weather.xml | grep -o "speed=\"[^\"]*\"" | grep -o "\"[^\"]*\"" | grep -o "[^\"]*"}${execi 300 grep "yweather:units" ~/.cache/weather.xml | grep -o "speed=\"[^\"]*\"" | grep -o "\"[^\"]*\"" | grep -o "[^\"]*"}
+${offset 875}${voffset 30}${font Ubuntu:pixelsize=12}${color}${texeci 300 grep "yweather:wind" ~/.cache/weather.xml | grep -o "speed=\"[^\"]*\"" | grep -o "\"[^\"]*\"" | grep -o "[^\"]*"}${execi 300 grep "yweather:units" ~/.cache/weather.xml | grep -o "speed=\"[^\"]*\"" | grep -o "\"[^\"]*\"" | grep -o "[^\"]*"}
 # Humidity
-${offset 835}${voffset 6}${font Ubuntu:pixelsize=12}${texeci 300 grep "yweather:atmosphere" ~/.cache/weather.xml | grep -o "humidity=\"[^\"]*\"" | grep -o "\"[^\"]*\"" | grep -o "[^\"]*"}%
+${offset 875}${voffset 6}${font Ubuntu:pixelsize=12}${texeci 300 grep "yweather:atmosphere" ~/.cache/weather.xml | grep -o "humidity=\"[^\"]*\"" | grep -o "\"[^\"]*\"" | grep -o "[^\"]*"}%
 # Display images
-${image ~/.cache/weather.png -p 730,180 -s 60x60}
-${image ~/.conky-themes/ConkyInfinitySVG/.conky/scripts/weather/wind.png -p 810,195 -s 15x15}
-${image ~/.conky-themes/ConkyInfinitySVG/.conky/scripts/weather/humidity.png -p 810,215 -s 15x15}
+${image ~/.cache/weather.png -p 770,180 -s 60x60}
+${image ~/.conky-themes/ConkyInfinitySVG/.conky/scripts/weather/wind.png -p 850,195 -s 15x15}
+${image ~/.conky-themes/ConkyInfinitySVG/.conky/scripts/weather/humidity.png -p 850,215 -s 15x15}
 ${voffset -270}${font Mono:size=0}
