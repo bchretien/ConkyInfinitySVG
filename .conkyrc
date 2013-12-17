@@ -55,18 +55,18 @@ default_color b7b7b7
 #own_window_transparent yes
 
 # Allow compiz to handle transparency manually (you will need to add Conky to compiz)
-#own_window yes
-#own_window_type normal
-#own_window_transparent no
-#own_window_hints undecorate,sticky,skip_taskbar,skip_pager,below
+own_window yes
+own_window_type normal
+own_window_transparent yes
+own_window_hints undecorate,sticky,skip_taskbar,skip_pager,below
 
 # Allow conky to handle transparency (with percentages) with a compositor
 # From http://blog.mmassonnet.info/2011/08/xfce-48-with-conky.html)
-own_window yes
-own_window_type normal
-own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager	# make it behave like it belongs to the desktop
-own_window_argb_visual yes	# true transparency, a compositor has to be active
-own_window_argb_value 70	# make the background semi-transparent
+#own_window yes
+#own_window_type normal
+#own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager	# make it behave like it belongs to the desktop
+#own_window_argb_visual yes	# true transparency, a compositor has to be active
+#own_window_argb_value 210	# make the background semi-transparent
 
 
 # Color settings
