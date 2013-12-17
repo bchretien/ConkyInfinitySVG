@@ -88,7 +88,7 @@ if typ == 'OK':
                 subject = getSubject(data)
                 print('{} new ("{}")'.format (unseen,subject))
             except:
-                print('{} new'.format (unsee))
+                print('{} new'.format (unseen))
         else:
             print('0 new')
 
