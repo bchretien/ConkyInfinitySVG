@@ -376,14 +376,14 @@ ${voffset -540}${font Mono:size=0}
 ${voffset 120}${font Mono:size=0}
 ${texeci 300 curl -s "http://weather.yahooapis.com/forecastrss?w=612977&u=c" -o ~/.cache/weather.xml}
 # Find weather condition
-${voffset 115}${offset 690}${font Ubuntu:pixelsize=14}${color}${texeci 300 grep "yweather:condition" ~/.cache/weather.xml | grep -o "text=\"[^\"]*\"" | grep -o "\"[^\"]*\"" | grep -o "[^\"]*"}
+#${voffset 115}${offset 690}${font Ubuntu:pixelsize=14}${color}${texeci 300 grep "yweather:condition" ~/.cache/weather.xml | grep -o "text=\"[^\"]*\"" | grep -o "\"[^\"]*\"" | grep -o "[^\"]*"}
 # Find localization
-${voffset 0}${offset 650}${font Open Sans Light:size=15}${color}${execi 300 grep "yweather:location" ~/.cache/weather.xml | grep -o "city=\"[^\"]*\"" | grep -o "\"[^\"]*\"" | grep -o "[^\"]*"}, ${execi 300 grep "yweather:location" ~/.cache/weather.xml | grep -o "country=\"[^\"]*\"" | grep -o "\"[^\"]*\"" | grep -o "[^\"]*"}${font}
+${voffset 115}${offset 650}${font Open Sans Light:size=15}${color}${execi 300 grep "yweather:location" ~/.cache/weather.xml | grep -o "city=\"[^\"]*\"" | grep -o "\"[^\"]*\"" | grep -o "[^\"]*"}, ${execi 300 grep "yweather:location" ~/.cache/weather.xml | grep -o "country=\"[^\"]*\"" | grep -o "\"[^\"]*\"" | grep -o "[^\"]*"}${font}
 # Temperature
-${voffset -85}${font Open Sans Light:size=28}${color}${offset 600}${execi 300 grep "yweather:condition" ~/.cache/weather.xml | grep -o "temp=\"[^\"]*\"" | grep -o "\"[^\"]*\"" | grep -o "[^\"]*"}°C${font}
+${voffset -70}${font Open Sans Light:size=28}${color}${offset 625}${execi 300 grep "yweather:condition" ~/.cache/weather.xml | grep -o "temp=\"[^\"]*\"" | grep -o "\"[^\"]*\"" | grep -o "[^\"]*"}°C${font}
 # Update image for current weather
 ${texeci 300 cp -f ~/.conky-themes/ConkyInfinitySVG/.conky/scripts/weather/$(grep "yweather:condition" ~/.cache/weather.xml | grep -o "code=\"[^\"]*\"" | grep -o "\"[^\"]*\"" | grep -o "[^\"]*").png ~/.cache/weather.png}
-${voffset -75}
+${voffset -72}
 # Wind
 ${offset 820}${voffset 25}${font Ubuntu:pixelsize=12}${color}${texeci 300 grep "yweather:wind" ~/.cache/weather.xml | grep -o "speed=\"[^\"]*\"" | grep -o "\"[^\"]*\"" | grep -o "[^\"]*"}${execi 300 grep "yweather:units" ~/.cache/weather.xml | grep -o "speed=\"[^\"]*\"" | grep -o "\"[^\"]*\"" | grep -o "[^\"]*"}
 # Humidity

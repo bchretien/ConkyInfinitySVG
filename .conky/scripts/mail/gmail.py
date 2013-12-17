@@ -61,14 +61,19 @@ else:
     sys.exit (1)
 
 # Prepare connection to IMAP server
-imap_server = imaplib.IMAP4_SSL (server, port)
+try:
+    imap_server = imaplib.IMAP4_SSL (server, port)
+except:
+    # No internet connexion
+    print ("Error: no internet connexion")
+    sys.exit (1)
 
 # Try to log in
 try:
     imap_server.login (username, passwd)
 except:
     # Error: check that IMAP is activated in GMail
-    print ('Error: login error (' + str(sys.exc_info()[1]) + ')')
+    print ('Error: login failed')
     sys.exit (1)
 
 typ, data = imap_server.select ('Inbox', readonly=True)
