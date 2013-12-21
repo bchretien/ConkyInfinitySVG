@@ -5,7 +5,7 @@
 
 InfinitySVG is a theme for the "conky" system monitor for X. It is based on the Infinity theme by Harshit Yadav.
 
-![InfinitySVG screenshot](https://github.com/bchretien/ConkyInfinitySVG/raw/master/images/InfinityMail-screencap-960w.png)
+![InfinitySVG screenshot](https://f.cloud.github.com/assets/2742231/1778747/6dd4a60e-6839-11e3-82e4-318efa90a25b.png)
 
 
 ## Acknowledgements
