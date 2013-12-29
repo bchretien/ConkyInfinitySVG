@@ -350,7 +350,7 @@ ${voffset -440}${font Mono:size=0}
 ## "Network" node (IP, connections, etc.)
 ${voffset 520}${font Mono:size=0}
 ${offset 623}${voffset 0}$color${font Santana:size=9:style=Bold}Local IP :${goto 705}${addr eth0}
-${offset 623}${voffset 0}$color${font Santana:size=9:style=Bold}Public IP :${goto 705}${execi 7200 ~/.conky-themes/ConkyInfinitySVG/.conky/scripts/net/public_ip.sh}
+${offset 623}${voffset 0}$color${font Santana:size=9:style=Bold}Public IP :${goto 705}${execi 7200 ~/.conky-themes/scripts/net/public_ip.sh}
 ${offset 625}${voffset 0}$color${font Santana:size=8}TCP Connections : ${tcp_portmon 1 65535 count}
 ${offset 625}${voffset 0}${font Santana:size=8}${color f4732d}Down : ${goto 675}$color${downspeed eth0}/s ${goto 725}${color ebff46}Up : ${goto 770}$color${upspeed eth0}/s
 ${offset 625}${voffset 0}${font Santana:size=8}${color f4732d}Total : ${goto 675}$color${totaldown eth0} ${goto 725}${color ebff46}Total : ${goto 770}$color${totalup eth0}

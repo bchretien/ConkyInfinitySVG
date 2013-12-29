@@ -327,9 +327,9 @@ ${voffset -175}${font Mono:size=0}
 #
 ## Disk usage node
 ${voffset 416}${font Mono:size=0}
-${offset 120}${voffset 0}${color 4a89a7}${font Santana:size=8:style=Bold}root$color${font Santana:size=8} :${offset 16}${fs_used /}/${fs_size /}
-${offset 120}${voffset 13}${color 46a646}${font Santana:size=8:style=Bold}home$color${font Santana:size=8} : ${offset 7}${fs_used /home}/${fs_size /home}$font
-${offset 120}${voffset 13}${color e83737}${font Santana:size=8:style=Bold}swap$color${font Santana:size=8} : ${offset 10}${swap}/${swapfree}$font
+${voffset 0}${goto 120}${color 4a89a7}${font Santana:size=8:style=Bold}root$color${font Santana:size=8} :${goto 175}${fs_used /}/${fs_size /}
+${voffset 13}${goto 120}${color 46a646}${font Santana:size=8:style=Bold}home$color${font Santana:size=8} :${goto 175}${fs_used /home}/${fs_size /home}$font
+${voffset 13}${goto 120}${color e83737}${font Santana:size=8:style=Bold}swap$color${font Santana:size=8} : ${goto 175}${swap}/${swapfree}$font
 ${voffset -484}${font Mono:size=0}
 #
 #
@@ -355,7 +355,7 @@ ${voffset -420}${font Mono:size=0}
 ## "Network" node (IP, connections, etc.)
 ${voffset 420}${font Mono:size=0}
 ${offset 463}${voffset 0}$color${font Santana:size=9:style=Bold}Local IP :${goto 545}${addr eth0}
-${offset 463}${voffset 0}$color${font Santana:size=9:style=Bold}Public IP :${goto 545}${execi 600 ~/.conky-themes/ConkyInfinitySVG/.conky/scripts/net/public_ip.sh}
+${offset 463}${voffset 0}$color${font Santana:size=9:style=Bold}Public IP :${goto 545}${execi 600 ~/.conky-themes/scripts/net/public_ip.sh}
 ${offset 465}${voffset 0}$color${font Santana:size=8}TCP Connections : ${tcp_portmon 1 65535 count}
 ${offset 465}${voffset 0}${font Santana:size=8}${color f4732d}Down : ${goto 515}$color${downspeed eth0}/s ${goto 565}${color ebff46}Up : ${goto 615}$color${upspeed eth0}/s
 ${offset 465}${voffset 0}${font Santana:size=8}${color f4732d}Total : ${goto 515}$color${totaldown eth0} ${goto 565}${color ebff46}Total : ${goto 615}$color${totalup eth0}
